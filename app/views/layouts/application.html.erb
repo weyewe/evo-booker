@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Salon</title>
+  <title>Booker</title>
 
     
   <%= stylesheet_link_tag 'http://cdn.sencha.io/ext-4.1.0-gpl/resources/css/ext-all.css', 'application'       %>
@@ -18,6 +18,18 @@
   <%= csrf_meta_tag %>
 </head>
 <body>
+
+	<div style="display:none;">
+    <div id="app-header-content">
+        <div id="app-logo">
+            <div class="logo-top">&#160;</div>
+            <div id="logo-body">&#160;</div>
+            <div class="logo-bottom">&#160;</div>
+        </div>
+        <h1>Booker</h1>
+        <span id="app-msg" class="x-hidden"></span>
+    </div>
+  </div>
 
 <%= yield %>
 
