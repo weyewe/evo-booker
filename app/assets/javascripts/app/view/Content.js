@@ -1,5 +1,5 @@
 Ext.define('AM.view.Content', {
-    extend: 'Ext.toolbar.Toolbar',
+    extend: 'Ext.panel.Panel',
     alias : 'widget.appContent',
     require : [
 			'AM.view.Content.EditPassword'

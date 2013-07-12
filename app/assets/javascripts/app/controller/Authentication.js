@@ -16,9 +16,7 @@ Ext.define("AM.controller.Authentication", {
 		} 
 	],
 	
-	init: function(){
-		console.log("In the authentication controller init");
-	},
+	 
 	
 	onLaunch : function(){
 		console.log("onLaunch");
@@ -65,6 +63,8 @@ Ext.define("AM.controller.Authentication", {
 	init : function( application ) {
 		var me = this; 
 		
+		
+		console.log("INSIDE INIT of Authentication.js");
 		me.control({
 			"button#loginBtn" : {
 				click : this.onLoginClick
@@ -101,13 +101,12 @@ Ext.define("AM.controller.Authentication", {
 	},
 	
 	onLogoutClick: function( button ){
+		
 		var me = this;
 		
 		
 		
-		me.destroyAuthentication();
-		// this could go to the localStorage. much more awesome 
-		// me.showLoginForm();
+		me.destroyAuthentication(); 
 		
 	},
 	

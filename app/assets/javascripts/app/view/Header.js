@@ -30,7 +30,8 @@ Ext.define('AM.view.Header', {
 						disabled: false,
 						tooltip: 'Calendar',
 						xtype: 'button',
-						text : "Calendar"
+						text : "Calendar",
+						action : "switchCalendar"
 
 					},
 					{
@@ -39,7 +40,8 @@ Ext.define('AM.view.Header', {
 						disabled: false,
 						tooltip: 'Bookings',
 						xtype: 'button',
-						text : "Bookings"
+						text : "Bookings",
+						action : "switchBooking"
 					},
 					{
 						iconCls: 'tasks-mark-active',
@@ -47,15 +49,17 @@ Ext.define('AM.view.Header', {
 						disabled: false,
 						tooltip: 'Report',
 						xtype: 'button',
-						text : "Report"
+						text : "Report",
+						action : "switchReport"
 					},
 					{
 						iconCls: 'tasks-mark-active',
-						id: 'mark-active-btn',
+						id: 'mark-master-btn',
 						disabled: false,
 						tooltip: 'Master Data',
 						xtype: 'button',
-						text : "Master Data"
+						text : "Master Data",
+						action : "switchMaster"
 					},
 					'->',
 					{
