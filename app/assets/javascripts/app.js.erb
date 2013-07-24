@@ -1,12 +1,22 @@
 // Set valid ExtJS loading path (/vendor/assets/extjs4/src)
 // Ext.Loader.setPath('Ext', '/assets/extjs4/src');
-Ext.Loader.setConfig({
-	enabled:true  
-});
+// Ext.Loader.setConfig({
+// 	enabled:true  
+// });
+// 
+// Ext.Loader.setConfig({
+//     enabled: true,
+//     paths: {
+//         'Ext.calendar': './app/src'
+//     }
+// });
+
 
 Ext.application({
 
 	<% Dir[File.expand_path('../app/*/', __FILE__)].each do |subdir| %>
+		<% next if File.basename(subdir) == 'src' %> 
+		
 		<%= File.basename(subdir) %>s: <%=
 		# omit all file extensions (js, js.erb, etc.) from the file name
 		Dir[subdir + '/*.js*'].map {|f| File.basename(f)[/^[^.]+/] }.to_json
@@ -22,14 +32,31 @@ Ext.application({
      appFolder: '/assets/app',
      autoCreateViewport: true,
 });
+ 
 
+Ext.define("AM.view.Constants",{
+	singleton	: true,
+	
+	LOGIN_URL	: "/login.do",
+	LOGOUT_URL	: "/logout.do",
+	
+	GET_USERS_URL	:  "/users/all",
+	GET_USER_URL	: "/users/get",
+	
+	switchCalendar : 0,
+	switchBooking : 1 ,
+	switchReport : 2 , 
+	switchMaster : 3 
+});
 
 
 
 
 
 Ext.onReady(function(){
-	console.log("The shite is ready");
+	// update the logo 
+	document.getElementById('logo-body').innerHTML = new Date().getDate();
+	
 	Ext.Ajax.on('beforerequest', function(conn, options) {
 		// always include the auth_token.. 
 			var currentUser = Ext.decode( localStorage.getItem('currentUser'));
@@ -49,7 +76,6 @@ Ext.onReady(function(){
 	      return options.headers["X-CSRF-Token"] = content;
 	    }
 	  }, this);
-	console.log("onReady is finished");
 });
 
  

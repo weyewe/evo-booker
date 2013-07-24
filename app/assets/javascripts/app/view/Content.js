@@ -2,7 +2,7 @@ Ext.define('AM.view.Content', {
     extend: 'Ext.panel.Panel',
     alias : 'widget.appContent',
     require : [
-			'AM.view.Content.EditPassword'
+			'AM.view.calendar.BookingCalendar'
 		],
     
     // height: 53,
@@ -18,6 +18,10 @@ Ext.define('AM.view.Content', {
 		},
 		
 		items : [
+			{
+				html : "Zero",
+				xtype : 'bookingCalendar'
+			},
 			{
 				html : "First",
 				xtype : 'container'
